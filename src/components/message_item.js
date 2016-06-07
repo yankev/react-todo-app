@@ -4,7 +4,7 @@ export default class MessageItem extends Component {
 
   constructor(props){
     super(props);
-    this.state = {status: 'list-group-item', item: this.props.index, edit_mode: false};
+    this.state = {status: 'list-group-item', item: this.props.index, edit_mode: false, message: ''};
     //this.changestate = this.changestate.bind(this);
   }
 
@@ -34,7 +34,7 @@ export default class MessageItem extends Component {
     if(edit_state) {
       return (
         <span className="glyphicon glyphicon-pencil">
-          <input type="text"></input>
+          <input type="text" onChange={(event) => this.setState({message: event.target.value})} value={this.state.message}></input>
         </span>
       )
     }
