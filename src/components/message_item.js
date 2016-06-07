@@ -33,8 +33,10 @@ export default class MessageItem extends Component {
     const edit_state = this.state.edit_mode;
     if(edit_state) {
       return (
-        <span className="glyphicon glyphicon-pencil">
+        <span>
           <input type="text" onChange={(event) => this.setState({message: event.target.value})} value={this.state.message}></input>
+          <button className="glyphicon glyphicon-floppy-disk"></button>
+          <button className="glyphicon glyphicon-remove"></button>
         </span>
       )
     }
