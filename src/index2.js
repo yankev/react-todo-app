@@ -57,7 +57,7 @@ class App extends Component {
      <h3><span className="badge">{this.state.message_array.length}</span> Tasks: </h3>
      <div className="panel panel-primary">
 
-      <MessageList messages={this.state.message_array} remover={this.removeItem}/>
+      <MessageList messages={this.state.message_array} remover={this.removeItem} changeHiddenState={this.changeHidden}/>
      </div>
      <br />
      <div className="row">
