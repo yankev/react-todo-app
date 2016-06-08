@@ -15,6 +15,10 @@ export default class MessageBar extends Component {
 		}
 	}
 
+	clearInput() {
+		this.setState({term: ''});
+	}
+
 	render() {
 		return (
 			<div className='message-bar'>

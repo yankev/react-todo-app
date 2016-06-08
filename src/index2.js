@@ -42,8 +42,8 @@ class App extends Component {
     this.state.num_messages += 1;
     const temp = this.state.message_array;
     temp.push({id: this.state.num_messages, val: this.state.hidden});
-    this.setState({message_array: temp, message: this.state.hidden});
-
+    this.setState({message_array: temp, message: this.state.hidden, hidden: ''});
+		this.refs.input.clearInput();
   }
 
 	removeItem(id){
@@ -65,14 +65,14 @@ class App extends Component {
 
 	render() {
 		return (
-		<div>
-     <h3><span className="badge">{this.state.message_array.length}</span> Tasks: </h3>
+		<div className='animated fadeInUpBig'>
+     <h3><span className="badge" data-toggle="tooltip" title="Hooray!">{this.state.message_array.length}</span> Tasks: </h3>
 		 <div className="row">
        <div className="col-lg-6">
          <div className="input-group">
-				 <MessageBar fun={this.changeHidden} onEnter={this.buttonClick}/>
+				 <MessageBar fun={this.changeHidden} onEnter={this.buttonClick} ref="input"/>
            <span className="input-group-btn">
-             <button onClick={() => this.buttonClick()} className="btn btn-primary">
+             <button onClick={() => this.buttonClick()} className="btn btn-primary" data-toggle="tooltip" title="Hooray!">
              Update</button>
            </span>
          </div>

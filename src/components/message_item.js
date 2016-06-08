@@ -17,8 +17,8 @@ export default class MessageItem extends Component {
       this.setState({status: 'list-group-item list-group-item-success'});
     }
     else if (val==3) {
-      this.setState({status: 'list-group-item list-group-item-danger'});
-      this.props.remover(this.state.item);
+      this.setState({status: 'animated bounceOutLeft list-group-item'}, () => setTimeout(() => this.props.remover(this.state.item),500));
+
     }
 
 
