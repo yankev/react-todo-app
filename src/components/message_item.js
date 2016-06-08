@@ -34,7 +34,13 @@ export default class MessageItem extends Component {
     if(edit_state) {
       return (
         <span className="input-group">
-          <input type="text" className="form-control" onChange={(event) => this.setState({message: event.target.value})} value={this.state.message}></input>
+          <input type="text" className="form-control" onChange={(event) => this.setState({message: event.target.value})} value={this.state.message}
+           onKeyPress={(event)=>{
+             if(event.charCode==13) {
+               this.props.changeHiddenState(this.state.item, this.state.message);
+               this.setState({edit_mode: false});
+             }
+           }}></input>
           <span className="input-group-btn">
           <button className="btn btn-default glyphicon glyphicon-floppy-disk" onClick={() => {
             console.log(this.state.message);
