@@ -33,14 +33,16 @@ export default class MessageItem extends Component {
     const edit_state = this.state.edit_mode;
     if(edit_state) {
       return (
-        <span>
-          <input type="text" onChange={(event) => this.setState({message: event.target.value})} value={this.state.message}></input>
-          <button className="glyphicon glyphicon-floppy-disk" onClick={() => {
+        <span className="input-group">
+          <input type="text" className="form-control" onChange={(event) => this.setState({message: event.target.value})} value={this.state.message}></input>
+          <span className="input-group-btn">
+          <button className="btn btn-default glyphicon glyphicon-floppy-disk" onClick={() => {
             console.log(this.state.message);
             this.props.changeHiddenState(this.state.item, this.state.message);
             this.setState({edit_mode: false});
           }}></button>
-          <button className="glyphicon glyphicon-remove" onClick={() => this.setState({edit_mode: false})}></button>
+          <button className="btn btn-default glyphicon glyphicon-remove" onClick={() => this.setState({edit_mode: false})}></button>
+          </span>
         </span>
       )
     }
@@ -57,7 +59,7 @@ export default class MessageItem extends Component {
     return(
     <li className={this.state.status}>
     <div>
-      <div className="dropdown">
+      <span className="dropdown">
         <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
         <span className="caret"></span></button>
         <ul className="dropdown-menu">
@@ -71,7 +73,7 @@ export default class MessageItem extends Component {
 
         </ul>
         {this.editmode_display()}
-      </div>
+      </span>
     </div>
     </li>
   );
