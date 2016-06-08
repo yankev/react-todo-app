@@ -67,15 +67,10 @@ class App extends Component {
 		return (
 		<div>
      <h3><span className="badge">{this.state.message_array.length}</span> Tasks: </h3>
-     <div className="panel panel-primary">
-
-      <MessageList messages={this.state.message_array} remover={this.removeItem} changeHiddenState={this.changeMessage} />
-     </div>
-     <br />
-     <div className="row">
+		 <div className="row">
        <div className="col-lg-6">
          <div className="input-group">
-           <MessageBar fun={this.changeHidden} onEnter={this.buttonClick}/>
+				 <MessageBar fun={this.changeHidden} onEnter={this.buttonClick}/>
            <span className="input-group-btn">
              <button onClick={() => this.buttonClick()} className="btn btn-primary">
              Update</button>
@@ -83,6 +78,10 @@ class App extends Component {
          </div>
        </div>
      </div>
+		 <div className="panel panel-primary">
+      <MessageList messages={this.state.message_array} remover={this.removeItem} changeHiddenState={this.changeMessage} />
+     </div>
+     <br />
     </div> );
 	}
 

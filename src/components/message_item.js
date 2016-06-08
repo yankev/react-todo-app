@@ -4,7 +4,7 @@ export default class MessageItem extends Component {
 
   constructor(props){
     super(props);
-    this.state = {status: 'list-group-item', item: this.props.index, edit_mode: false, message: ''};
+    this.state = {status: 'list-group-item', item: this.props.index, edit_mode: false, message: this.props.message};
     //this.changestate = this.changestate.bind(this);
   }
 
