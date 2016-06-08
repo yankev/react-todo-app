@@ -18,13 +18,25 @@ class App extends Component {
     this.changeHidden = this.changeHidden.bind(this);
 		this.removeItem = this.removeItem.bind(this);
 		this.buttonClick = this.buttonClick.bind(this);  // adding this so I can press enter in the textbox
-
+		this.changeMessage = this.changeMessage.bind(this);
 	}
 
 	changeHidden(text) {
-    //console.log('typing');
     this.setState({hidden: text});
   }
+
+	changeMessage(id, text) {
+		const temp = this.state.message_array;
+		var index = null;
+		for(var i=0; i<temp.length; i++) {
+			if(temp[i].id == id) {
+				index = i;
+				break;
+			}
+		}
+		temp[index].val = text;
+		this.setState({message_array: temp});
+	}
 
   buttonClick() {
     this.state.num_messages += 1;
@@ -57,7 +69,7 @@ class App extends Component {
      <h3><span className="badge">{this.state.message_array.length}</span> Tasks: </h3>
      <div className="panel panel-primary">
 
-      <MessageList messages={this.state.message_array} remover={this.removeItem} changeHiddenState={this.changeHidden}/>
+      <MessageList messages={this.state.message_array} remover={this.removeItem} changeHiddenState={this.changeMessage} />
      </div>
      <br />
      <div className="row">

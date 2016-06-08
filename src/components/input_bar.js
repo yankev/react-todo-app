@@ -8,7 +8,7 @@ export default class MessageBar extends Component {
 	}
 
 	checkEnter(event) {
-		console.log(event.charCode);
+		//console.log(event.charCode);
 		if(event.charCode==13) {
 			this.props.onEnter();
 			this.setState({term: ''});

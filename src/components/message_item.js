@@ -36,7 +36,8 @@ export default class MessageItem extends Component {
         <span>
           <input type="text" onChange={(event) => this.setState({message: event.target.value})} value={this.state.message}></input>
           <button className="glyphicon glyphicon-floppy-disk" onClick={() => {
-            this.props.changeHiddenState(this.state.message);
+            console.log(this.state.message);
+            this.props.changeHiddenState(this.state.item, this.state.message);
             this.setState({edit_mode: false});
           }}></button>
           <button className="glyphicon glyphicon-remove" onClick={() => this.setState({edit_mode: false})}></button>
