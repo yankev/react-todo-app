@@ -4,7 +4,7 @@ export default class MessageItem extends Component {
 
   constructor(props){
     super(props);
-    this.state = {status: 'list-group-item', item: this.props.index, edit_mode: false, message: this.props.message};
+    this.state = {status: 'list-group-item animated fadeInUp', item: this.props.index, edit_mode: false, message: this.props.message};
     //this.changestate = this.changestate.bind(this);
   }
 
@@ -63,9 +63,9 @@ export default class MessageItem extends Component {
   render() {
 
     return(
-    <li className={this.state.status}>
+    <li className={this.state.status} style={{'zIndex': 100, 'opacity': .99}}>
     <div>
-      <span className="dropdown">
+      <span className="dropdown" style={{'zIndex': 1000}}>
         <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
         <span className="caret"></span></button>
         <ul className="dropdown-menu">
